@@ -99,6 +99,6 @@ const Crud = styled.div`
   ion-icon {
     color: white;
     font-size: 20px;
-    margin: 0px 4px;
+    margin: 10px 5px;
   }
 `;
