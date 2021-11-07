@@ -2,14 +2,20 @@ import React from "react";
 import styled from "styled-components";
 
 function Notehead() {
+  const handleaddnote = () => {
+    console.log("clicked");
+  };
+
   return (
     <Container>
       <Title>
         In progress <span>23</span>
       </Title>
       <Icon>
-        <ion-icon name="ellipsis-vertical"></ion-icon>
-        <ion-icon name="add-circle"></ion-icon>
+        <button onClick={handleaddnote}>
+          <ion-icon name="ellipsis-vertical"></ion-icon>
+          <ion-icon name="add-circle"></ion-icon>
+        </button>
       </Icon>
     </Container>
   );
@@ -41,11 +47,18 @@ const Title = styled.p`
 `;
 
 const Icon = styled.div`
-  ion-icon:nth-child(1) {
-    color: white;
-  }
-  ion-icon {
-    color: #be9dff;
-    font-size: 25px;
+  button {
+    background: transparent;
+    border: none;
+
+    ion-icon:nth-child(1) {
+      color: white;
+    }
+
+    ion-icon {
+      color: #be9dff;
+      font-size: 25px;
+      cursor: pointer;
+    }
   }
 `;

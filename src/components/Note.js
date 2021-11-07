@@ -17,9 +17,12 @@ function Note() {
         <span>Design</span>
       </Tag>
       <Crud>
-        <ion-icon name="checkmark-done-outline"></ion-icon>
-        <ion-icon name="create-outline"></ion-icon>
-        <ion-icon name="trash-outline"></ion-icon>
+        <Date>26-11-2021</Date>
+        <Icon>
+          <ion-icon name="checkmark-done-outline"></ion-icon>
+          <ion-icon name="create-outline"></ion-icon>
+          <ion-icon name="trash-outline"></ion-icon>
+        </Icon>
       </Crud>
     </Notebox>
   );
@@ -33,7 +36,7 @@ const Notebox = styled.div`
   background-color: rgb(145 135 135 / 65%);
   border-radius: 12px;
   border: 2px solid rgba(255, 255, 255, 0.125);
-  padding: 10px;
+  padding: 15px;
   width: 200px;
   height: fit-content;
   position: relative;
@@ -92,9 +95,15 @@ const Tag = styled(Description)`
   }
 `;
 
+const Date = styled.p`
+  font-size: 13px;
+  color: rgb(200, 200, 200);
+  margin: 15px 0px;
+`;
+
 const Crud = styled.div`
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
 
   ion-icon {
     color: white;
@@ -102,3 +111,5 @@ const Crud = styled.div`
     margin: 10px 5px;
   }
 `;
+
+const Icon = styled.div``;
