@@ -13,8 +13,6 @@ function Note() {
       </Deadline>
       <Tag>
         <span>Frontend</span>
-        <span>Ux-Ui</span>
-        <span>Design</span>
       </Tag>
       <Crud>
         <Date>26-11-2021</Date>
