@@ -1,12 +1,16 @@
 import React from "react";
 import styled from "styled-components";
-function Modal() {
+function Modal(props) {
+  if (!props.show) {
+    return null;
+  }
   return (
-    <Notebox>
+    <Notebox onClick={(e) => e.stopPropagation()}>
       <Title placeholder="Add Title of note"></Title>
       <Description placeholder="Add description of Note" rows="6"></Description>
-      <Deadline placeholder="Enter deadline of task" type="Date"></Deadline>
+      <Deadline type="Date"></Deadline>
       <Tag placeholder="Tag"></Tag>
+      <Button>Add Note</Button>
     </Notebox>
   );
 }
@@ -27,7 +31,7 @@ const Notebox = styled.div`
   box-shadow: 0px 1px 188px 0px rgba(0, 0, 0, 0.75);
   -webkit-box-shadow: 0px 1px 188px 0px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 0px 1px 188px 0px rgba(0, 0, 0, 0.75);
-  transition: 0.3s;
+  transition: all 0.3s ease-in-out;
   cursor: pointer;
 `;
 
@@ -70,6 +74,7 @@ const Deadline = styled.input`
   }
   background: transparent;
   border: none;
+  cursor: pointer;
   &:focus {
     outline: none;
   }
@@ -84,7 +89,7 @@ const Tag = styled.input`
   background: #51b5e5;
   color: #f5f5f5;
   border-radius: 8px;
-  padding: 6px;
+  padding: 8px;
   width: 70px;
   margin: 15px 5px;
   border: none;
@@ -94,4 +99,15 @@ const Tag = styled.input`
   ::placeholder {
     color: white;
   }
+`;
+
+const Button = styled.button`
+  margin: 15px 5px;
+  padding: 10px 20px;
+  color: #fff;
+  background: #661b85d6;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
 `;

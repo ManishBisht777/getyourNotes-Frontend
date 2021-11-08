@@ -1,13 +1,11 @@
 import styled from "styled-components";
 import Header from "./components/Header";
-import Modal from "./components/Modal";
 import Notegrp from "./components/Notegrp";
 function App() {
   return (
     <Wrap>
-      <Modal />
-      {/* <Header /> */}
-      {/* <Notegrp /> */}
+      <Header />
+      <Notegrp />
     </Wrap>
   );
 }

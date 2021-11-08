@@ -1,23 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
+import Modal from "./Modal";
 
 function Notehead() {
-  const handleaddnote = () => {
-    console.log("clicked");
-  };
+  const [show, setshow] = useState(false);
 
   return (
-    <Container>
-      <Title>
-        In progress <span>23</span>
-      </Title>
-      <Icon>
-        <button onClick={handleaddnote}>
-          <ion-icon name="ellipsis-vertical"></ion-icon>
-          <ion-icon name="add-circle"></ion-icon>
-        </button>
-      </Icon>
-    </Container>
+    <>
+      <Container>
+        <Title>
+          In progress <span>23</span>
+        </Title>
+        <Icon>
+          <button onClick={() => setshow(!show)}>
+            <ion-icon name="ellipsis-vertical"></ion-icon>
+            <ion-icon name="add-circle"></ion-icon>
+          </button>
+        </Icon>
+      </Container>
+      <Modal show={show} />;
+    </>
   );
 }
 
