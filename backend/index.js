@@ -8,6 +8,7 @@ connectToMongo();
 
 //routes
 app.use("/api/note", require("./routes/notes"));
+
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
 });
