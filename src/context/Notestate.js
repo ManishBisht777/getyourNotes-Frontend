@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Notecontext from "./notecontext";
-
+// todo same using context api
 function notestate(props) {
   const initialnotes = [];
 
