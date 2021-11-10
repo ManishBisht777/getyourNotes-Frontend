@@ -1,18 +1,17 @@
 import React from "react";
 import styled from "styled-components";
-function Note() {
+function Note(props) {
+  const { note } = props;
   return (
     <Notebox>
-      <Title>Note title</Title>
-      <Description>
-        Note description- make a note modal that look beautiful
-      </Description>
+      <Title>{note.title}</Title>
+      <Description>{note.description}</Description>
       <Progress></Progress>
       <Deadline>
         <span>7</span> Hours left
       </Deadline>
       <Tag>
-        <span>Frontend</span>
+        <span>{note.tag}</span>
       </Tag>
       <Crud>
         <Date>26-11-2021</Date>

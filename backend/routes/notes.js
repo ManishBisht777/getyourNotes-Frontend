@@ -3,6 +3,10 @@ const router = express.Router();
 
 const Note = require("../modals/Notes");
 
+const cors = require("cors");
+
+router.use(cors());
+
 // create a note using post /api/note no auth required
 router.post("/addnote", (req, res) => {
   const note = Note(req.body);
