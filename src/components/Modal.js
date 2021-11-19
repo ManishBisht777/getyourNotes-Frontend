@@ -1,16 +1,61 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 function Modal(props) {
+  const [note, setnote] = useState({
+    title: "",
+    description: "",
+    tag: "",
+    deadline: "",
+  });
+
+  let name, value;
+
+  const handleinputs = (e) => {
+    name = e.target.name;
+    value = e.target.value;
+
+    setnote({ ...note, [name]: [value] });
+  };
+
+  const submit = async () => {
+    const { title, description,  tag,deadline} = note;
+
+    const response = fetch("http://localhost:5000/api/note/addnote", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        title,
+        description,
+        tag,
+        deadline,
+      }),
+    });
+    const data=(await response).json;
+    console.log(data[0]);
+  };
+
   if (!props.show) {
     return null;
   }
+
   return (
-    <Notebox onClick={(e) => e.stopPropagation()}>
-      <Title placeholder="Add Title of note"></Title>
-      <Description placeholder="Add description of Note" rows="6"></Description>
-      <Deadline type="Date"></Deadline>
-      <Tag placeholder="Tag"></Tag>
-      <Button>Add Note</Button>
+    <Notebox>
+      <Title
+        name="title"
+        placeholder="Add Title of note"
+        onChange={handleinputs}
+      ></Title>
+      <Description
+        name="description"
+        placeholder="Add description of Note"
+        rows="6"
+        onChange={handleinputs}
+      ></Description>
+      <Deadline name="deadline" type="Date" onChange={handleinputs}></Deadline>
+      <Tag name="tag" placeholder="Tag" onChange={handleinputs}></Tag>
+      <Button onClick={submit}>Add Note</Button>
     </Notebox>
   );
 }

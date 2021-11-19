@@ -2,21 +2,22 @@ const mongoose = require("mongoose");
 const { Schema } = mongoose;
 const Noteschema = new mongoose.Schema({
   title: {
-    type: String,
+    type: Array,
     required: true,
   },
   description: {
-    type: String,
+    type: Array,
     required: true,
   },
   state: {
-    type: String,
+    type: Array,
     default: "to do",
   },
-  tag: { type: String, default: "work" },
+  tag: { type: Array, default: "work" },
   deadline: {
     type: Date,
   },
+  
 });
 
 module.exports = mongoose.model("Notes", Noteschema);

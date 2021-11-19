@@ -17,7 +17,7 @@ router.post("/addnote", (req, res) => {
 // get all notes using get /api/note/getnotes
 
 router.get("/getnotes", async (req, res) => {
-  const note = await Note.find({ state: "todo" });
+  const note = await Note.find();
   res.json([note]);
 });
 
